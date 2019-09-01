@@ -14,7 +14,7 @@ import retrofit2.Response
 class MainPresenter(private val view: MainView) {
     private lateinit var mWeather: Weather
     var mForecast: Forecast? = null
-    var listOfForecast: ArrayList<ForecastdayItem>? = null
+    var listOfForecast: List<ForecastdayItem>? = null
     private val api_key = BuildConfig.api_key
     private val city: String = "Bandung"
     private val days: String = "7"
@@ -28,12 +28,10 @@ class MainPresenter(private val view: MainView) {
             override fun onResponse(callEntertainment: Call<Weather>, response: Response<Weather>) {
                 mWeather = response.body()!!
                 mWeather.let { view.showCurrentWeather(it) }
-                mForecast = mWeather.forecast
-                for (i in 0 until mForecast?.forecastday!!.size) {
-                    mForecast!!.forecastday!![i]?.let { listOfForecast?.add(it) }
-                }
 
-                listOfForecast.let { it?.let { it1 -> view.showForecast(it1) } }
+                mForecast = mWeather.forecast
+
+
             }
 
             override fun onFailure(call: Call<Weather>?, t: Throwable?) {

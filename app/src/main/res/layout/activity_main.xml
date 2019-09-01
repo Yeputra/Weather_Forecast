@@ -14,7 +14,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetEnd="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -24,7 +32,7 @@
             android:text="@string/app_name"
             android:textSize="18sp"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="18dp" />
+            tools:layout_editor_absoluteY="1dp" />
 
     </android.support.v7.widget.Toolbar>
 
@@ -75,8 +83,8 @@
 
             <ImageView
                 android:id="@+id/iv_condition"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
                 android:layout_marginStart="8dp"
                 android:src="@drawable/sun"
                 app:layout_constraintStart_toEndOf="@+id/tv_today"
@@ -205,15 +213,15 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_weather"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="420dp"
+        android:layout_marginTop="8dp"
         android:scrollbars="vertical"
-        tools:listitem="@layout/item_weather"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cv_weather"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_weather" />
 
 </android.support.constraint.ConstraintLayout>
