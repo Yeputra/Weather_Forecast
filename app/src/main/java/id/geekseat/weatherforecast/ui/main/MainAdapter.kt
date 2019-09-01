@@ -11,15 +11,16 @@ import id.geekseat.weatherforecast.model.Forecast
 import kotlinx.android.synthetic.main.item_weather.view.*
 import java.util.*
 
-class MainAdapter(var context: Context?, var list: Forecast) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(var context: Context?, var list: Forecast) :
+    RecyclerView.Adapter<MainAdapter.ViewHolder>() {
     val calendar = Calendar.getInstance()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         calendar.add(Calendar.DAY_OF_YEAR, +1)
-//        holder.tvDay.text = list.forecastday?.get(position)!!.date
         holder.tvDay.text = calendar.time.toString().take(10)
-        holder.tvTemperature.text = list.forecastday?.get(position)!!.day?.avgtempC.toString() + "°C"
-        var icon = "https:"+ list.forecastday?.get(position)!!.day?.condition?.icon
+        holder.tvTemperature.text =
+            list.forecastday?.get(position)!!.day?.avgtempC.toString() + "°C"
+        var icon = "https:" + list.forecastday?.get(position)!!.day?.condition?.icon
 
         Picasso.get()
             .load(icon)

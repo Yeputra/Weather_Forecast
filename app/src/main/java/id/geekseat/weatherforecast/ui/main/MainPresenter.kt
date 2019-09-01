@@ -5,7 +5,6 @@ import id.geekseat.weatherforecast.BuildConfig
 import id.geekseat.weatherforecast.api.ApiClient
 import id.geekseat.weatherforecast.api.ApiInterface
 import id.geekseat.weatherforecast.model.Forecast
-import id.geekseat.weatherforecast.model.ForecastdayItem
 import id.geekseat.weatherforecast.model.Weather
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,7 +13,6 @@ import retrofit2.Response
 class MainPresenter(private val view: MainView) {
     private lateinit var mWeather: Weather
     var mForecast: Forecast? = null
-    var listOfForecast: List<ForecastdayItem>? = null
     private val api_key = BuildConfig.api_key
     private val city: String = "Bandung"
     private val days: String = "7"

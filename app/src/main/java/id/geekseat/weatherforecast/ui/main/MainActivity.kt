@@ -2,6 +2,7 @@ package id.geekseat.weatherforecast.ui.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
@@ -13,7 +14,6 @@ import id.geekseat.weatherforecast.model.Forecast
 import id.geekseat.weatherforecast.model.Weather
 import org.jetbrains.anko.find
 import java.util.*
-
 
 class MainActivity : AppCompatActivity(), MainView {
 
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity(), MainView {
     private lateinit var ivCondition: ImageView
     private lateinit var mToolbar: Toolbar
     private lateinit var rvWeather: RecyclerView
+    private lateinit var mSwipe: SwipeRefreshLayout
 
     private lateinit var presenter: MainPresenter
     private lateinit var mAdapter: MainAdapter
@@ -54,12 +55,16 @@ class MainActivity : AppCompatActivity(), MainView {
         ivCondition = find(R.id.iv_condition)
         mToolbar = find(R.id.toolbar)
         rvWeather = find(R.id.rv_weather)
+        mSwipe = find(R.id.swipe)
 
         rvWeather.layoutManager = LinearLayoutManager(this)
         rvWeather.setHasFixedSize(true)
 
         presenter = MainPresenter(this)
         presenter.getCurrentWeather()
+        mSwipe.setOnRefreshListener {
+            presenter.getCurrentWeather()
+        }
     }
 
     private fun initToolbar() {
@@ -97,5 +102,6 @@ class MainActivity : AppCompatActivity(), MainView {
         rvWeather.adapter = mAdapter
 
         mAdapter.notifyDataSetChanged()
+        mSwipe.isRefreshing =false
     }
 }
