@@ -7,7 +7,7 @@ class ApiClient{
 
 companion object {
 
-    val BASE_URL = "http://api.apixu.com/v1/"
+    val BASE_URL = "https://api.apixu.com/v1/"
     private var retrofit: Retrofit? = null
     var retofit: Retrofit? = null
 

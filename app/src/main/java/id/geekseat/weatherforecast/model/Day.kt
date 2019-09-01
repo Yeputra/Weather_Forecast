@@ -32,7 +32,7 @@ data class Day(
 	val mintempF: Double? = null,
 
 	@field:SerializedName("totalprecip_in")
-	val totalprecipIn: Int? = null,
+	val totalprecipIn: Float? = null,
 
 	@field:SerializedName("avghumidity")
 	val avghumidity: Int? = null,
@@ -47,5 +47,5 @@ data class Day(
 	val maxwindMph: Double? = null,
 
 	@field:SerializedName("totalprecip_mm")
-	val totalprecipMm: Int? = null
+	val totalprecipMm: Float? = null
 )

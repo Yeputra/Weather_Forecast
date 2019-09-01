@@ -16,9 +16,15 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "api_key", api_key
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "api_key", api_key
         }
     }
 }
@@ -26,17 +32,25 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //Jetpack
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+
     //Design
     implementation "com.android.support:appcompat-v7:$design_version"
     implementation "com.android.support.constraint:constraint-layout:$constraint_version"
     implementation "com.android.support:cardview-v7:$design_version"
     implementation "com.android.support:recyclerview-v7:$design_version"
-    //3rd part
+
+    //3rd party lib
     implementation "com.google.code.gson:gson:2.8.2"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     // Anko Commons
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
     //Test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
