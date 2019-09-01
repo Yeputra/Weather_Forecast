@@ -2,24 +2,18 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/tools"
     app:ignore="NamespaceTypo">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cv_weather_forecast"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="4dp"
-        card_view:cardCornerRadius="12dp">
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
 
         <TextView
             android:id="@+id/tv_today"
@@ -28,7 +22,7 @@
             android:layout_margin="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/cabin"
             android:text="@string/today"
             android:textColor="@color/textColor"
             android:textSize="18sp"
@@ -50,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:fontFamily="@font/cabin_semibold"
+            android:fontFamily="@font/cabin"
             android:text="28C"
             android:textColor="@color/textColor"
             android:textSize="20sp"
@@ -61,6 +55,5 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    </android.support.v7.widget.CardView>
 
 </LinearLayout>
